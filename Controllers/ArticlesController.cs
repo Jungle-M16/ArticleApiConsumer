@@ -23,10 +23,10 @@ namespace ArticleApiConsumer.Controllers
 
         // GET: api/<ArticlesController>
         [HttpGet]
-        [Route("api/[controller]/GetArticlesByAuthor/{id}")]
-        public IActionResult GetArticlesByAuthor(int id)
+        [Route("api/[controller]/GetArticles")]
+        public IActionResult GetArticles()
         {
-            return Ok(_articleData.GetArticlesByAuthor(id) );
+            return Ok(_articleData.GetArticles());
         }
 
     }

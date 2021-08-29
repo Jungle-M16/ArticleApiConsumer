@@ -1,4 +1,5 @@
 
+using ArticleApiConsumer.ArticleData;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,6 +34,7 @@ namespace ArticleApiConsumer
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ArticleApiConsumer", Version = "v1" });
             });
+            services.AddScoped<IArticleData, RestArticleData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -10,7 +10,7 @@ namespace ArticleApiConsumer.ArticleData
     {
         List<Article> GetArticlesByAuthor(int id);
         List<Article> GetArticlesBySubjectType(string subject);
-        List<Article> GetArticles();
+        Task<List<Article>> GetArticles();
         Article GetArticle(Guid id);
         List<Author> GetAuthors();
         //Article AddArticle(Article article);
