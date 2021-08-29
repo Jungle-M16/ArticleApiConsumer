@@ -28,6 +28,47 @@ namespace ArticleApiConsumer.Controllers
         {
             return Ok(_articleData.GetArticles());
         }
+        [HttpGet]
+        [Route("api/[controller]/GetAuthors")]
+        public IActionResult GetAuthors()
+        {
+            return Ok(_articleData.GetAuthors());
+        }
+        [HttpGet]
+        [Route("api/[controller]/GetArticle/{id}")]
+        public IActionResult GetArticle(Guid id)
+        {
+            var article = _articleData.GetArticle(id);
+            if (article != null)
+            {
+                return Ok(article);
+            }
+            return NotFound($"The Article with Id: {id} was not found");
+        }
+        [HttpGet]
+        [Route("api/[controller]/GetArticlesByAuthor/{id}")]
+        public IActionResult GetArticlesByAuthorId(int id)
+        {
+            var articles = _articleData.GetArticlesByAuthor(id);
+
+            if (articles != null)
+            {
+                return Ok(articles);
+            }
+            return NotFound($"The Author with Id: {id} was not found");
+        }
+        [HttpGet]
+        [Route("api/[controller]/GetArticlesBySubjectType/{subject}")]
+        public IActionResult GetArticlesBySubjctType(string subject)
+        {
+            var articles = _articleData.GetArticlesBySubjectType(subject);
+
+            if (articles != null)
+            {
+                return Ok(articles);
+            }
+            return NotFound($"The Author with subject: {subject} was not found");
+        }
 
     }
 }

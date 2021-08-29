@@ -8,11 +8,11 @@ namespace ArticleApiConsumer.ArticleData
 {
     public interface IArticleData
     {
-        List<Article> GetArticlesByAuthor(int id);
-        List<Article> GetArticlesBySubjectType(string subject);
+        Task<List<Article>> GetArticlesByAuthor(int id);
+        Task<List<Article>> GetArticlesBySubjectType(string subject);
         Task<List<Article>> GetArticles();
-        Article GetArticle(Guid id);
-        List<Author> GetAuthors();
+        Task<Article> GetArticle(Guid id);
+        Task<List<Author>> GetAuthors();
         //Article AddArticle(Article article);
 
         //void DeleteArticle(Article article);
