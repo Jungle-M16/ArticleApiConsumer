@@ -5,12 +5,14 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace ArticleApiConsumer
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();

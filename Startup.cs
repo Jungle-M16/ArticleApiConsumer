@@ -1,4 +1,4 @@
-using Article;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,11 +32,6 @@ namespace ArticleApiConsumer
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ArticleApiConsumer", Version = "v1" });
-            });
-                    services.AddHttpClient<IArticleConsumerService, ArticleConsumerService>(
-            (provider, client) => {
-                client.BaseAddress = new Uri(Configuration.GetValue(
-                    "ArticleServiceBaseAddress", "https://localhost:44329/"));
             });
         }
 
