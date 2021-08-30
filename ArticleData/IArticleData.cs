@@ -13,6 +13,7 @@ namespace ArticleApiConsumer.ArticleData
         Task<List<Article>> GetArticles();
         Task<Article> GetArticle(Guid id);
         Task<List<Author>> GetAuthors();
+        Task<Article> GetLatestArticleBySubjectType(string subject);
         //Article AddArticle(Article article);
 
         //void DeleteArticle(Article article);

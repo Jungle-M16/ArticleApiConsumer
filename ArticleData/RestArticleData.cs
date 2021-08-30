@@ -54,6 +54,12 @@ namespace ArticleApiConsumer.ArticleData
             var articles = JsonConvert.DeserializeObject<List<Article>>(await result.Content.ReadAsStringAsync());
             return articles;
         }
+        async Task<Article> IArticleData.GetLatestArticleBySubjectType(string subject)
+        {
+            var result = client.GetAsync($"{url}/Articles/GetLatestArticleBySubjectType/{subject}").Result;
+            var article = JsonConvert.DeserializeObject<Article>(await result.Content.ReadAsStringAsync());
+            return article;
+        }
 
         async Task<List<Author>> IArticleData.GetAuthors()
         {

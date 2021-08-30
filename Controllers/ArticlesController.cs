@@ -67,7 +67,19 @@ namespace ArticleApiConsumer.Controllers
             {
                 return Ok(articles);
             }
-            return NotFound($"The Author with subject: {subject} was not found");
+            return NotFound($"The Article with subject: {subject} was not found");
+        }
+        [HttpGet]
+        [Route("api/[controller]/GetLatestArticleBySubjectType/{subject}")]
+        public IActionResult GetLatestArticleBySubjctType(string subject)
+        {
+            var article = _articleData.GetLatestArticleBySubjectType(subject);
+
+            if (article != null)
+            {
+                return Ok(article);
+            }
+            return NotFound($"The Article with subject: {subject} was not found");
         }
 
     }
